@@ -1,4 +1,4 @@
-const boxmapa = document.getElementById('map')
+const boxmapa = document.getElementById('boxmapa')
 
 
 var renderRota = ()=>{
@@ -21,10 +21,12 @@ var renderRota = ()=>{
             boxmapa.setAttribute('latfinal', data[0].lat)
             boxmapa.setAttribute('lonfinal', data[0].lon)
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log(err))    
 }
 
-var getDadosMapa = ()=>{    
+var getDadosMapa = ()=>{
+    boxmapa.innerHTML = ''
+    boxmapa.innerHTML = '<div id="map"></div>'  
     //Renderiza o mapa com a rota
     var map = L.map('map');
     L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
