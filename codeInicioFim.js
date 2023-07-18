@@ -1,4 +1,3 @@
-const coordenadas = []
 const boxmapa = document.getElementById('map')
 
 
@@ -13,8 +12,6 @@ var renderRota = ()=>{
         .then(data => {
             boxmapa.setAttribute('latinicio', data[0].lat)
             boxmapa.setAttribute('loninicio', data[0].lon)
-            /* coordenadas.push(data[0].lat)
-            coordenadas.push(data[0].lon) */
         })
         .catch(err => console.log(err))
         
@@ -23,8 +20,6 @@ var renderRota = ()=>{
         .then(data => {
             boxmapa.setAttribute('latfinal', data[0].lat)
             boxmapa.setAttribute('lonfinal', data[0].lon)
-            /* coordenadas.push(data[0].lat)
-            coordenadas.push(data[0].lon) */
         })
         .catch(err => console.log(err))
 }
@@ -40,8 +35,6 @@ var getDadosMapa = ()=>{
         waypoints: [
             L.latLng(boxmapa.getAttribute('latinicio'), boxmapa.getAttribute('loninicio')), 
             L.latLng(boxmapa.getAttribute('latfinal'), boxmapa.getAttribute('lonfinal'))
-            /* L.latLng(coordenadas[0], coordenadas[1]),  
-            L.latLng(coordenadas[2], coordenadas[3]) */  
         ],
         routeWhileDragging: true
     }).addTo(map); 
