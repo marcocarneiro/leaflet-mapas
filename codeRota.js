@@ -6,8 +6,8 @@ L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 
 L.Routing.control({
     waypoints: [
-        L.latLng(57.74, 11.94),
-        L.latLng(57.6792, 11.949)
+        L.latLng(-23.1805885, -45.8620117),  
+        L.latLng(-23.1574846, -45.79224672423055)  
     ],
     routeWhileDragging: true
 }).addTo(map);
