@@ -1,7 +1,7 @@
 //FUNÇÕES ///////////////////////
 
 //Renderiza mapa com localização do usuário
-var renderLocalUser = async()=>{
+var renderLocalUser = async ()=>{
     //captura latitudeitude e longitudeitude do usuário
     //e renderiza o mapa
     let longitude = 0
@@ -16,14 +16,9 @@ var renderLocalUser = async()=>{
             L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 }).addTo(map)
-            })
 
-            //centraliza o mapa
-            /* let latLon = L.latLng(latitude, longitude)
-            let bounds = latLon.toBounds(500)
-            await map.panTo(latLon).fitBounds(bounds) */
-
-            L.marker([latitude, longitude]).addTo(map).bindPopup('Você está aqui.').openPopup()
+            L.marker([latitude, longitude]).addTo(map).bindPopup('Você está aqui. <br>(O GPS do navegador pode ter imprecisões)').openPopup()
+        })            
     }
 }
 

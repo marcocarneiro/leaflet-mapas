@@ -18,7 +18,7 @@
      
     <link rel="stylesheet" href="leaflet-routing-machine.css" />
 
-     <style>
+     <style>      
       #map{ height: 520px; }
      </style>
 
@@ -26,14 +26,19 @@
 
 <body>
 
-  <main class="p-3 p-lg-5 text-center">
-    <div class="mb-5">
-        <input type="text" name="txt_inicio" id="txt_inicio" class="form-control mb-3" placeholder="Endereço inicial">
-        <input type="text" name="txt_final" id="txt_final" class="form-control mb-3" placeholder="Endereço final">
-        <button onClick="renderizaMap()" class="btn btn-success">Renderiza mapa</button>
+  <main class="p-3 container">
+
+    <div class="row">
+      <div class="col-md-4 mb-5">
+          <h4>Traçar uma rota até um destino</h4>
+          <input type="text" name="txt_inicio" id="txt_inicio" class="form-control mb-3" placeholder="Endereço inicial">
+          <input type="text" name="txt_final" id="txt_final" class="form-control mb-3" placeholder="Endereço final">
+          <button onClick="renderizaMap()" class="btn btn-success">Renderiza mapa</button>
+      </div>
+
+      <div id="boxmapa" class="col-md-8"></div>
     </div>
-    
-    <div id="boxmapa"></div>
+
   </main>
 
   <!-- Bootstrap  -->
