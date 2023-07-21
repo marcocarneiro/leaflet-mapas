@@ -14,18 +14,26 @@
     <!-- Leafleft CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-     crossorigin=""/>     
+     crossorigin=""/>
+     
+    <link rel="stylesheet" href="leaflet-routing-machine.css" />
 
      <style>
-      #mapa{ height: 430px; }
+      #map{ height: 520px; }
      </style>
 
 </head>
 
 <body>
 
-  <main class="p-3 p-lg-5">
-    <div id="mapa"></div>
+  <main class="p-3 p-lg-5 text-center">
+    <div class="mb-5">
+        <input type="text" name="txt_inicio" id="txt_inicio" class="form-control mb-3" placeholder="Endereço inicial">
+        <input type="text" name="txt_final" id="txt_final" class="form-control mb-3" placeholder="Endereço final">
+        <button onClick="renderizaMap()" class="btn btn-success">Renderiza mapa</button>
+    </div>
+    
+    <div id="boxmapa"></div>
   </main>
 
   <!-- Bootstrap  -->
@@ -40,7 +48,9 @@
   integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
   crossorigin=""></script>
 
-  <script src="code.js"></script>
+  <script src="leaflet-routing-machine.js"></script>
+
+  <script src="renderMap.js"></script>
 </body>
 
 </html>

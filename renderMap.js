@@ -1,8 +1,33 @@
-const boxmapa = document.getElementById('boxmapa')
-var errCoords = 0
-var latinicio, loninicio, latfinal, lonfinal
+//FUNÇÕES ///////////////////////
 
+//Renderiza mapa com localização do usuário
+var renderLocalUser = async()=>{
+    //captura latitudeitude e longitudeitude do usuário
+    //e renderiza o mapa
+    let longitude = 0
+    let latitude = 0
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((posic)=>{
+            longitude = posic.coords.longitude
+            latitude = posic.coords.latitude            
+            
+            let map = L.map('map').setView([latitude, longitude], 20)
 
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map)
+            })
+
+            //centraliza o mapa
+            /* let latLon = L.latLng(latitude, longitude)
+            let bounds = latLon.toBounds(500)
+            await map.panTo(latLon).fitBounds(bounds) */
+
+            L.marker([latitude, longitude]).addTo(map).bindPopup('Você está aqui.').openPopup()
+    }
+}
+
+//Renderiza mapa e rota a partir de 2 endereços fornecidos pelo usuário
 var renderizaMap = async()=>{
     var txt_inicio = document.getElementById('txt_inicio')
     var txt_final = document.getElementById('txt_final')
@@ -52,3 +77,15 @@ var renderizaMap = async()=>{
 
 }
 
+
+
+//VARIÁVEIS GLOBAIS
+const boxmapa = document.getElementById('boxmapa')
+var errCoords = 0
+var latinicio, loninicio, latfinal, lonfinal
+
+boxmapa.innerHTML = ''
+boxmapa.innerHTML = '<div id="map"></div>'
+
+//Inicia mostrando mapa com localização do usuário
+renderLocalUser()
